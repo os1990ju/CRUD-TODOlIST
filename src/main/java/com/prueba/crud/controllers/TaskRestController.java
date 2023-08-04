@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class TaskRestController {
@@ -62,7 +63,7 @@ public class TaskRestController {
      * @param id
      * @return
      */
-    @PutMapping("/tasks/{id}")
+    @PatchMapping("/tasks/{id}")
     public  ResponseEntity<?> updateTask(@Valid @RequestBody Task task, BindingResult result , @PathVariable Long id){
 
         Task currentTask = taskService.findById(id);
@@ -95,8 +96,8 @@ public class TaskRestController {
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
             return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        response.put("mensaje","tarea actualizada con exito!");
-        response.put("Tarea",taskUpdated);
+        response.put("message","tarea actualizada con exito!");
+        response.put("Task",taskUpdated);
         return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
     }
 
