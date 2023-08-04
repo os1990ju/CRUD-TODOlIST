@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.prueba.crud</groupId>
 	<artifactId>crud</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>crud</name>
 	<description>Prueba crud aplicado a un todo-list</description>
 	<properties>
